@@ -14,6 +14,16 @@ public class VipBitcoinAPITest {
         assertEquals(ticker.getCoin1(), "btc");
         assertEquals(ticker.getCoin2(), "idr");
         assertTrue(ticker.getServerTime() > 0);
+
+
+    }
+
+    @org.junit.Test
+    public void getTrades() throws Exception {
+        VipBitcoinAPI api = new VipBitcoinAPI();
+        Trades trades = api.getTrades("xrp", "idr");
+        assertEquals(trades.getCoin1(), "xrp");
+        assertTrue(trades.getTradeItems().size() > 0);
     }
 
 }
